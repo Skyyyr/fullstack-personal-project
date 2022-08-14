@@ -7,7 +7,6 @@ from .models import AppUser as User, Trainer, Pokemon, Attacks
 
 
 def home(request):
-    print('home!')
     theIndex = open('static/index.html').read()
     return HttpResponse(theIndex)
 
@@ -136,7 +135,6 @@ def pokemon(request):
 
         if req_poke == 'catch':
             trainer_check = Trainer.objects.filter(account_id=request.user).exists()
-            print('this is a catch')
             if trainer_check:
                 selected_trainer = Trainer.objects.get(account_id=request.user)
 

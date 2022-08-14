@@ -84,7 +84,7 @@ class Pokemon(models.Model):
     defence = models.IntegerField(default=5)
     offence = models.IntegerField(default=5)
 
-    # Health remaining should persist
+    # Health remaining should persist - if enough time to implement
     current_health = models.IntegerField(default=10)
 
     # Attacks by name
