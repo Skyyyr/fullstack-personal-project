@@ -17,7 +17,7 @@ function NewGame() {
             <div className={'col-12'}>
                 <div className={"imgWrapper"}>
                     <img src={background} id={'background'} height={580}/>
-                    <img id={'oak'} src={Oak} className={'oak'}/>
+                    <img id={'oak'} src={Oak} className={'invisible'}/>
                     <img id={'char_f'} src={player_f} className={'select_start_f invisible'}/>
                     <img id={'char_m'} src={player_m}  className={'select_start_m invisible'}/>
                 </div>

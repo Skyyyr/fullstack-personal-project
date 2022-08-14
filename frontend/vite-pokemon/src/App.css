@@ -57,6 +57,12 @@
   transform: translate(340px, 10px);
 }
 
+.dialog {
+  width: 770px;
+  position: relative;
+  transform: translateY(-200px);
+}
+
 .menu-name-label {
   position: relative;
   transform: translate(140px, -10px);

@@ -1,0 +1,151 @@
+[
+  {
+    "id": 0,
+    "menu_title": "Meet Prof. Oak (sleeping)",
+    "details": "... ... ... *snore* ... ... ...",
+    "func": "",
+    "anim": false,
+    "animation_control": [
+    ],
+    "options": [
+      {
+        "id": 1,
+        "text": "Hello? Are you sleeping?"
+      }
+    ]
+    },
+    {
+      "id": 1,
+      "menu_title": "Meet Prof. Oak",
+      "details": "Oh hello, I didn't see you standing there. You showed up earlier than expected, wait what was your name again?",
+      "func": "",
+      "anim": true,
+      "animation_control": [
+        {
+          "html": "oak",
+          "anim_add": "oak",
+          "anim_remove": "invisible"
+        }
+      ],
+      "options": [
+        {
+          "id": 2,
+          "text": "Really you forgot my name?"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "menu_title": "Name yourself",
+      "details": "I'm getting too old I guess. Just type out your name and press submit when your done.",
+      "func": "name",
+      "anim": false,
+      "animation_control": [],
+      "options": [
+        {
+          "id": 3,
+          "text": "Submit name"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "menu_title": "Meet Prof. Oak",
+      "details": "Great name, well welcome to the world of Pokemon. In this world you'll be able to meet and catch pokemon!",
+      "func": "nameStop",
+      "anim": false,
+      "animation_control": [],
+      "options": [
+        {
+          "id": 4,
+          "text": "That sounds great!"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "menu_title": "Meet Prof. Oak",
+      "details": "Pokemon are great, but before I send you off you should tell me which pokemon you'd like to start with.",
+      "func": "",
+      "anim": false,
+      "animation_control": [],
+      "options": [
+        {
+          "id": 5,
+          "text": "Bulbasaur"
+        },
+        {
+          "id": 6,
+          "text": "Charmander"
+        },
+        {
+          "id": 7,
+          "text": "Squirtle"
+        }
+      ]
+    },
+    {
+        "id": 5,
+        "menu_title": "Meet Prof. Oak",
+        "details": "You've chosen Bulbasaur, are you sure?",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 8,
+                "text": "Confirm my selection"
+            },
+            {
+                "id": 4,
+                "text": "Select again"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "menu_title": "Meet Prof. Oak",
+        "details": "You've chosen Charmander, are you sure?",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 8,
+                "text": "Confirm my selection"
+            },
+            {
+                "id": 4,
+                "text": "Select again"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "menu_title": "Meet Prof. Oak",
+        "details": "You've chosen Squirtle, are you sure?",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 8,
+                "text": "Confirm my selection"
+            },
+            {
+                "id": 4,
+                "text": "Select again"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "menu_title": "Meet Prof. Oak",
+        "details": "Good luck out there and enjoy the Pokemon world!",
+        "func": "finish",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+        ]
+    }
+]

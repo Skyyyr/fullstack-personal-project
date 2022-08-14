@@ -1,5 +1,5 @@
-import Menus from '../fixtures/menus.json'
-import {useState} from "react";
+import Menus from '../fixtures/characterCreation.json'
+import {useEffect, useState} from "react";
 import PlayerChoiceOption from "./PlayerChoiceOption.jsx";
 import {Howl} from "howler";
 import introMusic from "../../audio/NewStart.mp3";
@@ -16,10 +16,9 @@ function PlayerChoiceMenu() {
 
     const [playerChoices, setPlayerChoices] = useState(Menus[0])
     const [nameInput, setNameInput] = useState()
-    //TODO Move these to newGame or another established location
-    //    newGame because newGame should handle all newGame related functionality
     const [userName, setUserName] = useState('')
     const [userGender, setUserGender] = useState('')
+    const [convo, setConvo] = useState('')
 
     function displayNameInput() {
         return setNameInput(<NameInputForm />)
@@ -103,6 +102,7 @@ function PlayerChoiceMenu() {
             if (Menus[i]['id'] === clickedOptionId) {
                 setPlayerChoices(Menus[i])
                 handleFunction(Menus[i]['func'])
+                setConvo(createNpcDialog(Menus[i]['details']))
                 if (Menus[i]["anim"]) {
                     for (let j = 0; j < Menus[i]['animation_control'].length; j++) {
                         handleAnimation(
@@ -125,8 +125,18 @@ function PlayerChoiceMenu() {
         return htmlContent
     }
 
+    function createNpcDialog(dialog) {
+        console.log("Dialog", dialog)
+        return <div className={'dialog text-center'}>{dialog}</div>
+    }
+
+    useEffect(() => {
+        setConvo(createNpcDialog(Menus[0]['details']))
+    }, [])
+
     return (
-        <div className={'row'}>
+        <div>
+            {convo}
             {createMenuOptions(playerChoices.options)}
             {nameInput}
         </div>
