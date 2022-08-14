@@ -1,0 +1,497 @@
+[
+    {
+        "id": 0,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 1,
+                "text": "Music Options"
+            },
+            {
+                "id": 5,
+                "text": "Animation Options"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 2,
+                "text": "Play Music"
+            },
+            {
+                "id": 4,
+                "text": "Stop Music"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "menu_title": "t",
+        "details": "d",
+        "func": "play",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 3,
+                "text": "Pause Music"
+            },
+            {
+                "id": 4,
+                "text": "Stop Music"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "menu_title": "t",
+        "details": "d",
+        "func": "pause",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 2,
+                "text": "Play Music"
+            },
+            {
+                "id": 4,
+                "text": "Stop Music"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "menu_title": "t",
+        "details": "d",
+        "func": "stop",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 2,
+                "text": "Play Music"
+            },
+            {
+                "id": 0,
+                "text": "Restart"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 6,
+                "text": "Move Oak R->L"
+            },
+            {
+                "id": 7,
+                "text": "Move Oak L->R"
+            },
+            {
+                "id": 8,
+                "text": "Characters"
+            },
+            {
+                "id": 0,
+                "text": "Main Menu"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": true,
+        "animation_control": [
+            {
+                "html": "oak",
+                "anim_add": "oak-move",
+                "anim_remove": "oak"
+            }
+        ],
+        "options": [
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            },
+            {
+                "id": 7,
+                "text": "Move Oak L->R"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": true,
+        "animation_control": [
+            {
+                "html": "oak",
+                "anim_add": "oak",
+                "anim_remove": "oak-move"
+            }
+        ],
+        "options": [
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            },
+            {
+                "id": 6,
+                "text": "Move Oak R->L"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            },
+            {
+                "id": 9,
+                "text": "Characters"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 11,
+                "text": "Make Visible"
+            },
+            {
+                "id": 10,
+                "text": "Make Invisible"
+            },
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": true,
+        "animation_control": [
+            {
+                "html": "char_f",
+                "anim_add": "invisible-slow",
+                "anim_remove": "visible-slow"
+            },
+            {
+                "html": "char_m",
+                "anim_add": "invisible-slow",
+                "anim_remove": "visible-slow"
+            },
+            {
+                "html": "char_f",
+                "anim_add": "",
+                "anim_remove": ""
+            },
+            {
+                "html": "char_m",
+                "anim_add": "",
+                "anim_remove": ""
+            }
+        ],
+        "options": [
+            {
+                "id": 8,
+                "text": "Char Menu"
+            },
+            {
+                "id": 11,
+                "text": "Make Visible"
+            },
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": true,
+        "animation_control": [
+            {
+                "html": "char_f",
+                "anim_add": "visible-slow",
+                "anim_remove": "invisible-slow"
+            },
+            {
+                "html": "char_m",
+                "anim_add": "visible-slow",
+                "anim_remove": "invisible-slow"
+            },
+            {
+                "html": "char_f",
+                "anim_add": "",
+                "anim_remove": "invisible"
+            },
+            {
+                "html": "char_m",
+                "anim_add": "",
+                "anim_remove": "invisible"
+            }
+        ],
+        "options": [
+            {
+                "id": 8,
+                "text": "Char Menu"
+            },
+            {
+                "id": 10,
+                "text": "Make Invisible"
+            },
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": true,
+        "animation_control": [
+            {
+                "html": "char_f",
+                "anim_add": "visible-slow",
+                "anim_remove": "invisible-slow"
+            },
+            {
+                "html": "char_m",
+                "anim_add": "visible-slow",
+                "anim_remove": "invisible-slow"
+            },
+            {
+                "html": "char_f",
+                "anim_add": "",
+                "anim_remove": "invisible"
+            },
+            {
+                "html": "char_m",
+                "anim_add": "",
+                "anim_remove": "invisible"
+            }
+        ],
+        "options": [
+            {
+                "id": 8,
+                "text": "Char Menu"
+            },
+            {
+                "id": 10,
+                "text": "Make Invisible"
+            },
+            {
+                "id": 5,
+                "text": "Anim Menu"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "menu_title": "t",
+        "details": "d",
+        "func": "name",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 14,
+                "text": "Submit Name"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "menu_title": "t",
+        "details": "d",
+        "func": "nameStop",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 13,
+                "text": "Name Input"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "menu_title": "t",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 16,
+                "text": "Male"
+            },
+            {
+                "id": 17,
+                "text": "Female"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "menu_title": "t",
+        "details": "d",
+        "func": "setUserMale",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 17,
+                "text": "Change to Female"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "menu_title": "t",
+        "details": "d",
+        "func": "setUserFemale",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 16,
+                "text": "Change to Male"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "menu_title": "character creation",
+        "details": "d",
+        "func": "",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 13,
+                "text": "Name input"
+            },
+            {
+                "id": 15,
+                "text": "Set Gender"
+            },
+            {
+                "id": 19,
+                "text": "Log Char Data"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "menu_title": "character creation",
+        "details": "d",
+        "func": "logCharData",
+        "anim": false,
+        "animation_control": [],
+        "options": [
+            {
+                "id": 0,
+                "text": "Main Menu"
+            },
+            {
+                "id": 18,
+                "text": "Character Creation Menu"
+            }
+        ]
+    }
+]

@@ -1,0 +1,142 @@
+[
+  [
+    {
+      "pokedex_number": 10,
+      "level": 3,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 10,
+      "level": 4,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 10,
+      "level": 5,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 13,
+      "level": 3,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 13,
+      "level": 4,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 13,
+      "level": 5,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 3,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 4,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 5,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 3,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 4,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 16,
+      "level": 5,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Gust"
+        }
+      ]
+    },
+    {
+      "pokedex_number": 25,
+      "level": 8,
+      "attack_list": [
+        {
+          "attackName": "Tackle"
+        },
+        {
+          "attackName": "Thunder Shock"
+        }
+      ]
+    }
+  ]
+]
