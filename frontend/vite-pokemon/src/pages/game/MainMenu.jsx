@@ -2,12 +2,11 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import SoundController from "../../components/SoundController";
-import {unmountComponentAtNode} from "react-dom";
 
 function MainMenu() {
     const [hasStoredData, setHasStoredData] = useState(false)
 
-    const [testBool, setTestBool] = useState(false)
+    // const [testBool, setTestBool] = useState(false)
 
     const nav = useNavigate()
 
@@ -40,17 +39,13 @@ function MainMenu() {
         hasActiveTrainer()
     }
 
-    function audioTest() {
-        if (testBool) {
-            setTestBool(false)
-        } else {
-            setTestBool(true)
-        }
-    }
-
-    // useEffect(() => {
-    //
-    // }, [testBool])
+    // function audioTest() {
+    //     if (testBool) {
+    //         setTestBool(false)
+    //     } else {
+    //         setTestBool(true)
+    //     }
+    // }
 
     return (
         <div>
@@ -82,15 +77,15 @@ function MainMenu() {
                         Delete Game
                     </button>
                 </div>
-                <button onClick={audioTest}>
-                    audio
-                </button>
-                {
-                    testBool ?
-                        <SoundController soundData={{'audio': 'title', 'loop': false}} stopSound={audioTest}/>
-                        :
-                        "No Sound Obj"
-                }
+                {/*<button onClick={audioTest}>*/}
+                {/*    audio*/}
+                {/*</button>*/}
+                {/*{*/}
+                {/*    testBool ?*/}
+                {/*        <SoundController soundData={{'audio': 'title', 'loop': false}} stopSound={audioTest}/>*/}
+                {/*        :*/}
+                {/*        "No Sound Obj"*/}
+                {/*}*/}
             </div>
         </div>
     )

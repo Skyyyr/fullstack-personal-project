@@ -6,6 +6,15 @@
   /*text-align: center;*/
 }
 
+body {
+  background-color: darkgray;
+}
+
+.navbar-div {
+  background-color: darkgray;
+  width: 775px;
+}
+
 /* Character */
 
 .select_start_f {

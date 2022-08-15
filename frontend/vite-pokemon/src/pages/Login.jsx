@@ -6,15 +6,23 @@ import { useNavigate } from "react-router-dom";
 function Login() {
     const nav = useNavigate()
 
-    function submitLoginForm() {
+    async function submitLoginForm() {
         const inputEmail = document.getElementById('email-form').value
         const inputPassword = document.getElementById('password-form').value
-        console.log(inputEmail, inputPassword)
-        axios.post('/login', {email: inputEmail, password: inputPassword}).then((response)=>{
-            console.log('response from server: ', response)
-            window.location.reload()
+
+        const loginResponse = await axios.post('/login', {email: inputEmail, password: inputPassword}).catch((resp) => {
+            console.log("uh oh", resp)
         })
-        nav('/home')
+
+        // console.log("login_response", loginResponse)
+        const results = loginResponse.data['login']
+        // console.log('results', results)
+        if (results === 'success') {
+            nav('/home')
+            window.location.reload()
+        } else {
+            alert("The details you entered were not valid for an account. Retry or Register for an account first.")
+        }
     }
 
     return (

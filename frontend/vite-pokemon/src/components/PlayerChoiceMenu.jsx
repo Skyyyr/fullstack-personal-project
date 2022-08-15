@@ -5,6 +5,7 @@ import {Howl} from "howler";
 import introMusic from "../../audio/NewStart.mp3";
 import NameInputForm from "./NameInputForm.jsx";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const sound = new Howl({
@@ -12,13 +13,24 @@ const sound = new Howl({
     loop: true
 });
 
+const STARTER_NAMES = ['Bulba-Boss', 'Charmy', 'Turtle']
+const STARTER_MOVES = ['Vine Whip', 'Ember', 'Water Gun']
+
+//TODO When selecting one of the starters we should display them on the screen
+
 function PlayerChoiceMenu() {
+    const nav = useNavigate()
 
     const [playerChoices, setPlayerChoices] = useState(Menus[0])
     const [nameInput, setNameInput] = useState()
     const [userName, setUserName] = useState('')
-    const [userGender, setUserGender] = useState('')
+    const [userGender, setUserGender] = useState('m')
     const [convo, setConvo] = useState('')
+    const [starterIdx, setStarterIdx] = useState(0)
+
+    function loadGame() {
+        nav('/game/play')
+    }
 
     function displayNameInput() {
         return setNameInput(<NameInputForm />)
@@ -38,13 +50,34 @@ function PlayerChoiceMenu() {
         setUserGender('f')
     }
 
-    function logCharData() {
+    async function logCharData() {
         console.log('Logging data: ', userName, userGender)
-        axios.post('/trainer', {isSwap: false, name: userName, gender: userGender}).then((response)=>{
-            console.log('response from server: ', response)
-            // window.location.reload()
-            // TODO transition into the actual game - which is at a dif hash route
+        await axios.post('/trainer', {isSwap: false, name: userName, gender: userGender}).catch(reason => {
+            // Something bad happened!
+            console.log("Reason", reason)
         })
+        await axios.post('/pokemon', {
+            'poke': 'starter',
+            'details': {
+                    'name': starterIdx === 1 ? STARTER_NAMES[0] : starterIdx === 4 ? STARTER_NAMES[1] : STARTER_NAMES[2],
+                    'pokedex_number': starterIdx,
+                    'level': 5,
+                    'max_health': 15,
+                    'health': 15,
+                    'speed': 10,
+                    'accuracy': 15,
+                    'defence': 12,
+                    'offence': 12,
+                    'attack_list': starterIdx === 1 ? STARTER_MOVES[0] : starterIdx === 4 ? STARTER_MOVES[1] : STARTER_MOVES[2]
+                }
+        }).catch(reason => {
+            // Something bad happened!
+            console.log("Reason", reason)
+        })
+
+        setTimeout(function() {
+            loadGame()
+        }, 2000)
     }
 
     function handleFunction(requestedFunction) {
@@ -70,7 +103,17 @@ function PlayerChoiceMenu() {
             case 'setUserFemale':
                 setUserFemale()
                 break
-            case 'logCharData':
+            case 'bulbasaur':
+                setStarterIdx(1)
+                break
+            case 'charmander':
+                setStarterIdx(4)
+                break
+            case 'squirtle':
+                setStarterIdx(7)
+                break
+            case 'finish':
+                sound.stop()
                 logCharData()
                 break
             default:

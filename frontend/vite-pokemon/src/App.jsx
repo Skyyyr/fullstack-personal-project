@@ -36,7 +36,7 @@ function App() {
     const [user, setUser] = useState(null)
 
     function handleLogout() {
-        axios.post('/logout').then((response) => {
+        axios.post('/logout').then(() => {
             whoAmI()
         })
     }
@@ -52,7 +52,7 @@ function App() {
     }, [])
 
     return (
-        <div className="App">
+        <div className={"App"}>
             <Router>
                 <AppNavbar user={user}/>
                 <Routes>

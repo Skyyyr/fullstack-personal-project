@@ -2,11 +2,11 @@ import {Navbar, Nav, Container} from 'react-bootstrap'
 
 function AppNavbar(props) {
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
+        <div className={'navbar-div'}>
+            <Navbar expand="lg">
                 <Container>
                     <Navbar.Brand>
-                        React-Bootstrap
+                        Pokemon-Lite
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

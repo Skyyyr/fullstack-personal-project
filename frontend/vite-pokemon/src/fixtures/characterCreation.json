@@ -18,7 +18,7 @@
       "id": 1,
       "menu_title": "Meet Prof. Oak",
       "details": "Oh hello, I didn't see you standing there. You showed up earlier than expected, wait what was your name again?",
-      "func": "",
+      "func": "play",
       "anim": true,
       "animation_control": [
         {
@@ -88,7 +88,7 @@
         "id": 5,
         "menu_title": "Meet Prof. Oak",
         "details": "You've chosen Bulbasaur, are you sure?",
-        "func": "",
+        "func": "bulbasaur",
         "anim": false,
         "animation_control": [],
         "options": [
@@ -106,7 +106,7 @@
         "id": 6,
         "menu_title": "Meet Prof. Oak",
         "details": "You've chosen Charmander, are you sure?",
-        "func": "",
+        "func": "charmander",
         "anim": false,
         "animation_control": [],
         "options": [
@@ -124,7 +124,7 @@
         "id": 7,
         "menu_title": "Meet Prof. Oak",
         "details": "You've chosen Squirtle, are you sure?",
-        "func": "",
+        "func": "squirtle",
         "anim": false,
         "animation_control": [],
         "options": [

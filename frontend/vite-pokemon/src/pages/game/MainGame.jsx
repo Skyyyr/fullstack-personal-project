@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import pokeball from '../../../img/POKEBALL.png'
 
-function MainGame(props) {
+function MainGame() {
     const nav = useNavigate()
 
     const [activePokemon, setActivePokemon] = useState([])
@@ -41,13 +41,11 @@ function MainGame(props) {
 
     async function testSwap(id, slotidx) {
         //TODO Use or not variable assignment
-        const response = await axios.post('/trainer', {isSwap: true, slot_one_to: id, slot_id: slotidx}).catch(reason => {
+        await axios.post('/trainer', {isSwap: true, slot_one_to: id, slot_id: slotidx}).catch(reason => {
             //Something bad happened!
             console.log("Reason", reason)
         })
-
-        window.location.reload();
-        //TODO Swap the window reload with actual updating
+        displayActivePokemon()
     }
 
     function displayPokeBalls() {
@@ -68,16 +66,14 @@ function MainGame(props) {
         displayActivePokemon()
     }, [])
 
+    useEffect(() => {
+    }, [activePokemon])
+
     return (
         <div className={'row'}>
             <div className={'col-12'}>
                 <button onClick={wildEncounter} >
                     Find Pokemon
-                </button>
-            </div>
-            <div className={'col-12'}>
-                <button>
-                    Heal
                 </button>
             </div>
             <div>

@@ -18,30 +18,37 @@ def sign_up(request):
                                  email=request.data['email'])
     except Exception as e:
         print(str(e))
-    return HttpResponse('hi')
+        return JsonResponse({'signup': 'failure'})
+    return JsonResponse({'signup': 'success'})
 
 
 @api_view(['POST'])
 def log_in(request):
+    print("log_in requested")
     email = request.data['email']
     password = request.data['password']
     user = authenticate(username=email, password=password)
 
     if user is not None:
+        print("user is not None")
         if user.is_active:
+            print("user.is_active")
             try:
+                print("try")
                 login(request._request, user)
+                return JsonResponse({'login': 'success'})
 
             except Exception as e:
-                print(str(e))
-
-            return HttpResponse('success!')
+                print("EXCEPT",str(e))
+                return JsonResponse({'login': 'failure'})
 
         else:
-            return HttpResponse('not active!')
+            print("USER NOT ACTIVE ELSE")
+            return JsonResponse({'login': 'not active'})
 
     else:
-        return HttpResponse('no user!')
+        print("NO USER ELSE")
+        return JsonResponse({'login': 'no user'})
 
 
 @api_view(['POST'])
@@ -132,60 +139,86 @@ def trainer(request):
 def pokemon(request):
     if request.user.is_authenticated:
         req_poke = request.data['poke']
+        trainer_check = Trainer.objects.filter(account_id=request.user).exists()
+
+        if not trainer_check:
+            return JsonResponse({'Trainer': "No trainer found."})
+
+        selected_trainer = Trainer.objects.get(account_id=request.user)
+
+        if req_poke == 'starter':
+            starter = Pokemon.objects.create(
+                trainer=selected_trainer,
+                name=request.data['details']['name'],
+                pokedex_number=request.data['details']['pokedex_number'],
+                level=request.data['details']['level'],
+                reqExp=request.data['details']['level'] * 10,
+                health=request.data['details']['max_health'],
+                speed=request.data['details']['speed'],
+                accuracy=request.data['details']['accuracy'],
+                offence=request.data['details']['offence'],
+                defence=request.data['details']['defence'],
+                current_health=request.data['details']['max_health'],
+                attack_slot_1='Tackle',
+                attack_slot_2=request.data['details']['attack_list'],
+                attack_slot_3='n',
+                attack_slot_4='n',
+            )
+
+            selected_trainer.pokemon_slot_1 = starter.pk
+            selected_trainer.save()
+
+            return JsonResponse({"Createdstarter": model_to_dict(starter)})
 
         if req_poke == 'catch':
-            trainer_check = Trainer.objects.filter(account_id=request.user).exists()
-            if trainer_check:
-                selected_trainer = Trainer.objects.get(account_id=request.user)
+            slot_1 = request.data['details']['attack_list'][0]['data']['attackObj']['name']
+            slot_2 = 'n'
+            slot_3 = 'n'
+            slot_4 = 'n'
 
-                slot_1 = request.data['details']['attack_list'][0]['data']['attackObj']['name']
-                slot_2 = 'n'
-                slot_3 = 'n'
-                slot_4 = 'n'
+            if len(request.data['details']['attack_list']) > 3:
+                slot_4 = request.data['details']['attack_list'][3]['data']['attackObj']['name']
 
-                if len(request.data['details']['attack_list']) > 3:
-                    slot_4 = request.data['details']['attack_list'][3]['data']['attackObj']['name']
+            if len(request.data['details']['attack_list']) > 2:
+                slot_3 = request.data['details']['attack_list'][2]['data']['attackObj']['name']
 
-                if len(request.data['details']['attack_list']) > 2:
-                    slot_3 = request.data['details']['attack_list'][2]['data']['attackObj']['name']
+            if len(request.data['details']['attack_list']) > 1:
+                slot_2 = request.data['details']['attack_list'][1]['data']['attackObj']['name']
 
-                if len(request.data['details']['attack_list']) > 1:
-                    slot_2 = request.data['details']['attack_list'][1]['data']['attackObj']['name']
+            caught = Pokemon.objects.create(
+                trainer=selected_trainer,
+                name=request.data['details']['name'],
+                pokedex_number=request.data['details']['pokedex_number'],
+                level=request.data['details']['level'],
+                reqExp=request.data['details']['level'] * 10,
+                health=request.data['details']['max_health'],
+                speed=request.data['details']['speed'],
+                accuracy=request.data['details']['accuracy'],
+                offence=request.data['details']['offence'],
+                defence=request.data['details']['defence'],
+                current_health=request.data['details']['max_health'],
+                attack_slot_1=slot_1,
+                attack_slot_2=slot_2,
+                attack_slot_3=slot_3,
+                attack_slot_4=slot_4,
+            )
 
-                caught = Pokemon.objects.create(
-                    trainer=selected_trainer,
-                    name=request.data['details']['name'],
-                    pokedex_number=request.data['details']['pokedex_number'],
-                    level=request.data['details']['level'],
-                    reqExp=request.data['details']['level'] * 10,
-                    health=request.data['details']['max_health'],
-                    speed=request.data['details']['speed'],
-                    accuracy=request.data['details']['accuracy'],
-                    offence=request.data['details']['offence'],
-                    defence=request.data['details']['defence'],
-                    current_health=request.data['details']['max_health'],
-                    attack_slot_1=slot_1,
-                    attack_slot_2=slot_2,
-                    attack_slot_3=slot_3,
-                    attack_slot_4=slot_4,
-                )
+            if selected_trainer.pokemon_slot_1 == 0:
+                selected_trainer.pokemon_slot_1 = caught.pk
+            elif selected_trainer.pokemon_slot_2 == 0:
+                selected_trainer.pokemon_slot_2 = caught.pk
+            elif selected_trainer.pokemon_slot_3 == 0:
+                selected_trainer.pokemon_slot_3 = caught.pk
+            elif selected_trainer.pokemon_slot_4 == 0:
+                selected_trainer.pokemon_slot_4 = caught.pk
+            elif selected_trainer.pokemon_slot_5 == 0:
+                selected_trainer.pokemon_slot_5 = caught.pk
+            else:
+                selected_trainer.pokemon_slot_6 = caught.pk
 
-                if selected_trainer.pokemon_slot_1 == 0:
-                    selected_trainer.pokemon_slot_1 = caught.pk
-                elif selected_trainer.pokemon_slot_2 == 0:
-                    selected_trainer.pokemon_slot_2 = caught.pk
-                elif selected_trainer.pokemon_slot_3 == 0:
-                    selected_trainer.pokemon_slot_3 = caught.pk
-                elif selected_trainer.pokemon_slot_4 == 0:
-                    selected_trainer.pokemon_slot_4 = caught.pk
-                elif selected_trainer.pokemon_slot_5 == 0:
-                    selected_trainer.pokemon_slot_5 = caught.pk
-                else:
-                    selected_trainer.pokemon_slot_6 = caught.pk
+            selected_trainer.save()
 
-                selected_trainer.save()
-
-                return JsonResponse({'caught': model_to_dict(caught)})
+            return JsonResponse({'caught': model_to_dict(caught)})
 
         pokemon_check = Pokemon.objects.filter(pk=req_poke).exists()
 
