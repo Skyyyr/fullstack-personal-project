@@ -7,6 +7,7 @@ import intro from "../../../audio/battle wild.mp3";
 import win from "../../../audio/battle victory wild.mp3";
 import flee from "../../../audio/battle flee.mp3";
 import {Howl} from "howler";
+import HealthBar from "../../components/HealthBar.jsx";
 
 //Stat generation
 const STAT_INNER_ROLLS = 6

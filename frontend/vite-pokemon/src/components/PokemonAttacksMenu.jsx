@@ -10,25 +10,6 @@ function PokemonAttacksMenu(props) {
         }
     }
 
-    // function createAttacks() {
-    //     let htmlContent = []
-    //     const difference = 4 - props.attack_list.length
-    //     // dif = 4 - 2 = 2
-    //     for (let i = 0; i < 4; i++) {
-    //         const content = i > difference && difference !== 0 ?
-    //             <div className={'col-6'}>
-    //                 <PokemonAttack attackName={'n'} useAbility={usedAbility}/>
-    //             </div>
-    //             :
-    //             <div className={'col-6'}>
-    //                 <PokemonAttack attackName={props.attack_list[i]} useAbility={usedAbility}/>
-    //             </div>
-    //
-    //         htmlContent.push(content)
-    //     }
-    //     return htmlContent
-    // }
-
     function createAttacks() {
         let htmlContent = []
         for (let i = 0; i < props.attack_list.length; i++) {
@@ -38,19 +19,8 @@ function PokemonAttacksMenu(props) {
                 </div>
             )
         }
-        // const difference = 4 - props.attack_list.length
-        // if (difference > 0) {
-        //     for (let i = 0; i < difference; i++) {
-        //         htmlContent.push(
-        //         <div className={'col-6'}>
-        //             <PokemonAttack attackName={'n'} useAbility={usedAbility}/>
-        //         </div>
-        //     )
-        //     }
-        // }
         return htmlContent
     }
-
 
     return (
         <div className={'row'}>

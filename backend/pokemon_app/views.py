@@ -30,24 +30,18 @@ def log_in(request):
     user = authenticate(username=email, password=password)
 
     if user is not None:
-        print("user is not None")
         if user.is_active:
-            print("user.is_active")
             try:
-                print("try")
                 login(request._request, user)
                 return JsonResponse({'login': 'success'})
 
             except Exception as e:
-                print("EXCEPT",str(e))
-                return JsonResponse({'login': 'failure'})
+                return JsonResponse({'login': e})
 
         else:
-            print("USER NOT ACTIVE ELSE")
             return JsonResponse({'login': 'not active'})
 
     else:
-        print("NO USER ELSE")
         return JsonResponse({'login': 'no user'})
 
 

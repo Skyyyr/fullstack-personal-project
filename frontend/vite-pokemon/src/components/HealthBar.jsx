@@ -1,7 +1,7 @@
 import {useEffect, useState, useImperativeHandle} from "react";
 import {useRef} from "react";
 
-function HealthBar({bgcolor, progress, height, update}, ref) {
+function HealthBar({bgcolor, progress, height, update}) {
     
     const [percent, setPercent] = useState(100)
     const mounted = useRef(false);
