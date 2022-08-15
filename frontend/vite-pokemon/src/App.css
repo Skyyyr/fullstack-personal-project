@@ -6,6 +6,10 @@
   /*text-align: center;*/
 }
 
+.lost {
+  width: 1080px;
+}
+
 body {
   background-color: darkgray;
 }

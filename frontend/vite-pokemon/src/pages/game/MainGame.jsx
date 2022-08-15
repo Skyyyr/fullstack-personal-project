@@ -2,13 +2,16 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import pokeball from '../../../img/POKEBALL.png'
+import {useRef} from "react";
 
 function MainGame() {
     const nav = useNavigate()
 
+    const mounted = useRef(false);
+
     const [activePokemon, setActivePokemon] = useState([])
 
-    function wildEncounter() {
+    function wildEncounter(props) {
         nav('/game/play/encounter')
     }
 
@@ -63,7 +66,14 @@ function MainGame() {
 
 
     useEffect(() => {
+        if (props.user === undefined) {
+            nav('/login')
+            return () => {
+                mounted.current = false
+            }
+        }
         displayActivePokemon()
+        mounted.current = true
     }, [])
 
     useEffect(() => {

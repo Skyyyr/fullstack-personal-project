@@ -13,6 +13,7 @@ import NewGame from "./pages/game/NewGame.jsx";
 import MainGame from "./pages/game/MainGame.jsx";
 import Battle from "./pages/game/Battle.jsx";
 import WildEncounter from "./pages/game/WildEncounter.jsx";
+import PageNotFound from "./pages/PageNotFound.jsx";
 
 
 const getCSRFToken = ()=> {
@@ -33,7 +34,7 @@ const getCSRFToken = ()=> {
 axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 
 function App() {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState()
 
     function handleLogout() {
         axios.post('/logout').then(() => {
@@ -57,17 +58,18 @@ function App() {
                 <AppNavbar user={user}/>
                 <Routes>
                     <Route path='/login' element={<Login />} />
-                    <Route path='/logout' element={<Logout clickFunction={handleLogout}/>} />
+                    <Route path='/logout' element={<Logout clickFunction={handleLogout} user={user}/>} />
                     <Route path='/signup' element={<Signup />} />
                     <Route path='/about' element={<AboutMe user={user}/>} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/' element={<Home />} />
                     {/*TODO Should add/remove /home or / */}
                     <Route path='/game' element={<MainMenu user={user}/>} />
-                    <Route path='/game/new' element={<NewGame />} />
+                    <Route path='/game/new' element={<NewGame user={[user]}/>} />
                     <Route path='/game/play' element={<MainGame user={user}/>} />
                     {/*<Route path='/game/play/encounter' element={<Battle />} />*/}
-                    <Route path='/game/play/encounter' element={<WildEncounter />} />
+                    <Route path='/game/play/encounter' element={<WildEncounter user={user}/>} />
+                    <Route path='*' element={<PageNotFound />} />
                 </Routes>
             </Router>
         </div>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import {useEffect} from "react";
 
 function Logout(props) {
     const nav = useNavigate()
@@ -7,6 +8,16 @@ function Logout(props) {
         nav('/home')
         props.clickFunction()
     }
+
+    useEffect(() => {
+        if (props.user === undefined) {
+            nav('/login')
+            return () => {
+                mounted.current = false
+            }
+        }
+        mounted.current = true
+    }, [])
 
     return (
         <div>

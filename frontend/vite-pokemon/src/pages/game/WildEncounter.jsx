@@ -40,7 +40,7 @@ const fle = new Howl({
     loop: false
 });
 
-function WildEncounter() {
+function WildEncounter(props) {
 
     const nav = useNavigate()
 
@@ -489,6 +489,12 @@ function WildEncounter() {
     }
 
     useEffect(() => {
+        if (props.user === undefined) {
+            nav('/login')
+            return () => {
+                mounted.current = false
+            }
+        }
         randomPoke()
         myPoke()
         playIntro()

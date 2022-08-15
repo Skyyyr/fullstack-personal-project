@@ -2,11 +2,12 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import SoundController from "../../components/SoundController";
+import {useRef} from "react";
 
-function MainMenu() {
+function MainMenu(props) {
     const [hasStoredData, setHasStoredData] = useState(false)
 
-    // const [testBool, setTestBool] = useState(false)
+    const mounted = useRef(false);
 
     const nav = useNavigate()
 
@@ -18,7 +19,14 @@ function MainMenu() {
     }
 
     useEffect(() => {
+        if (props.user === undefined) {
+            nav('/login')
+            return () => {
+                mounted.current = false
+            }
+        }
         hasActiveTrainer()
+        mounted.current = true;
     }, [])
 
     async function hasActiveTrainer() {
