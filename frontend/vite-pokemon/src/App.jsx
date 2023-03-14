@@ -65,7 +65,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     {/*TODO Should add/remove /home or / */}
                     <Route path='/game' element={<MainMenu user={user}/>} />
-                    <Route path='/game/new' element={<NewGame user={[user]}/>} />
+                    <Route path='/game/new' element={<NewGame user={user}/>} />
                     <Route path='/game/play' element={<MainGame user={user}/>} />
                     {/*<Route path='/game/play/encounter' element={<Battle />} />*/}
                     <Route path='/game/play/encounter' element={<WildEncounter user={user}/>} />

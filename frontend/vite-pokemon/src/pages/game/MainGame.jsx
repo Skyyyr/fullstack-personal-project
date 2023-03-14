@@ -4,7 +4,7 @@ import axios from "axios";
 import pokeball from '../../../img/POKEBALL.png'
 import {useRef} from "react";
 
-function MainGame() {
+function MainGame(props) {
     const nav = useNavigate()
 
     const mounted = useRef(false);
